@@ -1,0 +1,27 @@
+{
+  "name": "gerenciador-eventos-palestrantes",
+  "version": "1.0.0",
+  "description": "API para gerenciamento de eventos e palestrantes",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "build": "tsc",
+    "start": "node dist/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.16.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.3",
+    "@types/node": "^24.0.0",
+    "prisma": "^6.16.2",
+    "tsx": "^4.20.3",
+    "typescript": "^5.9.2"
+  }
+}
