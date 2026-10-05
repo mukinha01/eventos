@@ -1,6 +1,7 @@
 <div align="center">
 
-# 🎤 Eventos
+# 
+Eventos
 
 ### API para organizar eventos e palestrantes
 
@@ -16,13 +17,13 @@ Cadastre eventos, gerencie palestrantes e mantenha os vínculos entre eles em um
 
 ---
 
-## ✨ Sobre o projeto
+##  Sobre o projeto
 
 Uma API REST desenvolvida para o gerenciamento de eventos e palestrantes. Um evento pode ter vários palestrantes, e cada palestrante pode participar de vários eventos.
 
 O projeto foi organizado para separar inicialização da aplicação, rotas, controllers, conexão com o banco e scripts SQL.
 
-## 🧰 Tecnologias
+##  Tecnologias
 
 - Node.js e TypeScript
 - Express 5
@@ -30,7 +31,7 @@ O projeto foi organizado para separar inicialização da aplicação, rotas, con
 - PostgreSQL
 - CORS e dotenv
 
-## 🗂️ Estrutura
+##  Estrutura
 
 ```text
 ├── database/
@@ -68,7 +69,7 @@ Os campos de cadastro são obrigatórios. O e-mail do palestrante é único. A t
 
 ![Diagrama entidade-relacionamento de eventos e palestrantes](./diagrama_er.png)
 
-## 🚀 Como executar
+##  Como executar
 
 ### Pré-requisitos
 
@@ -169,10 +170,10 @@ npm start
 
 As rotas de criação e atualização exigem o preenchimento dos campos obrigatórios. A view `vw_eventos_com_palestrantes` também está disponível nos scripts SQL.
 
-## 🗃️ Scripts do banco
+##  Scripts do banco
 
 Os arquivos SQL foram separados para facilitar a leitura e execução. `01_schema.sql` recria as tabelas e remove as tabelas existentes com os mesmos nomes; use-o somente em um banco de desenvolvimento sem dados que queira preservar. `04_backup_completo.sql` contém estrutura, relacionamentos, view e dados de exemplo em um único arquivo.
 
-## 📄 Licença
+##  Licença
 
 Projeto de estudo. Consulte as condições de uso com o autor antes de reutilizar.
