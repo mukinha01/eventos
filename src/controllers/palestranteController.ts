@@ -2,10 +2,14 @@ import { Request, Response } from "express";
 import { prisma } from "../database/prisma";
 
 export async function criarPalestrante(req: Request, res: Response) {
-  const { nome, email } = req.body;
+  const nome = typeof req.body.nome === "string" ? req.body.nome.trim() : "";
+  const email = typeof req.body.email === "string" ? req.body.email.trim() : "";
 
   if (!nome || !email) {
     return res.status(400).json({ erro: "Preencha todos os campos." });
+  }
+  if (nome.length > 150 || email.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ erro: "Informe um nome e um e-mail válido." });
   }
 
   const palestrante = await prisma.palestrante.create({
@@ -37,10 +41,14 @@ export async function buscarPalestrante(req: Request, res: Response) {
 
 export async function atualizarPalestrante(req: Request, res: Response) {
   const id = Number(req.params.id);
-  const { nome, email } = req.body;
+  const nome = typeof req.body.nome === "string" ? req.body.nome.trim() : "";
+  const email = typeof req.body.email === "string" ? req.body.email.trim() : "";
 
   if (!nome || !email) {
     return res.status(400).json({ erro: "Preencha todos os campos." });
+  }
+  if (nome.length > 150 || email.length > 200 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    return res.status(400).json({ erro: "Informe um nome e um e-mail válido." });
   }
 
   const palestrante = await prisma.palestrante.update({
