@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f97316" />
+    <title>Gerenciador de eventos</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#eventos">Gerenciador de eventos</a>
+      <nav class="navigation" aria-label="Menu principal">
+        <a class="nav-link" href="#palestrantes" data-page-link="palestrantes">Cadastro de palestrantes</a>
+        <a class="nav-link" href="#novo-evento" data-page-link="novo-evento">Cadastro de evento</a>
+        <a class="nav-link active" href="#eventos" data-page-link="eventos">Gerenciador de evento</a>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="page page-visible" id="page-eventos" aria-labelledby="events-heading">
+        <div class="page-heading"><div><h1 id="events-heading">Eventos</h1></div></div>
+        <div class="events-grid" id="events-list"><div class="loading-cell">Carregando eventos…</div></div>
+      </section>
+
+      <section class="page" id="page-novo-evento" aria-labelledby="event-form-heading">
+        <div class="page-heading"><div><h1 id="event-form-heading">Cadastro palestrante</h1></div></div>
+        <section class="form-card">
+          <form id="event-form" novalidate>
+            <div class="field"><label for="event-name">Nome <span class="required">*</span></label><input id="event-name" name="nome" maxlength="150" required /></div>
+            <div class="field"><label for="event-description">Descrição <span class="required">*</span></label><textarea id="event-description" name="descricao" rows="3" required></textarea></div>
+            <div class="field"><label for="event-location">Local <span class="required">*</span></label><input id="event-location" name="local" maxlength="200" required /></div>
+            <div class="field"><label for="event-speakers">Palestrante <span class="required">*</span></label><select id="event-speakers" name="palestranteIds" required></select><span class="field-hint" id="speaker-hint">Selecione o palestrante do evento.</span></div>
+            <div class="form-actions"><span class="required-note"><span class="required">*</span> Campos obrigatórios</span><button class="button button-primary" type="submit" id="save-event">Cadastrar</button></div>
+          </form>
+        </section>
+      </section>
+
+      <section class="page" id="page-palestrantes" aria-labelledby="speaker-heading">
+        <div class="page-heading"><div><h1 id="speaker-heading">Cadastro palestrante</h1></div></div>
+        <div class="speaker-layout">
+          <section class="form-card">
+            <form id="speaker-form" novalidate>
+              <div class="field"><label for="speaker-name">Nome <span class="required">*</span></label><input id="speaker-name" name="nome" maxlength="150" required /></div>
+              <div class="field"><label for="speaker-email">E-mail <span class="required">*</span></label><input id="speaker-email" name="email" type="email" maxlength="200" required /></div>
+              <div class="form-actions"><span class="required-note"><span class="required">*</span> Campos obrigatórios</span><button class="button button-primary" type="submit" id="save-speaker">Cadastrar</button></div>
+            </form>
+          </section>
+        </div>
+      </section>
+      <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    </main>
+  </body>
+</html>

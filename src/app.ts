@@ -3,17 +3,16 @@ import cors from "cors";
 import eventoRoutes from "./routes/eventoRoutes";
 import palestranteRoutes from "./routes/palestranteRoutes";
 import { errorHandler } from "./middlewares/errorHandler";
+import path from "node:path";
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.resolve(process.cwd(), "public")));
 
 app.get("/", (_req, res) => {
-  res.json({
-    sistema: "Gerenciador de Eventos e Palestrantes",
-    status: "online"
-  });
+  res.sendFile(path.resolve(process.cwd(), "public", "index.html"));
 });
 
 app.use("/eventos", eventoRoutes);
